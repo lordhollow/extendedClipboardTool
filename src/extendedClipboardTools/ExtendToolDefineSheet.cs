@@ -21,7 +21,7 @@ namespace extendedClipboardTools
         /// names to trigger button
         /// </summary>
         public String FaceName { get; set; }
- 
+
         /// <summary>
         /// description of tool
         /// </summary>
@@ -34,6 +34,20 @@ namespace extendedClipboardTools
         [XmlAttribute("continuous")]
         [DefaultValue(false)]
         public bool Continuous { get; set; } = false;
+
+        /// <summary>
+        /// global script
+        /// </summary>
+        [XmlElement("Global")]
+        [DefaultValue(null)]
+        public string GlobalScript { get; set; } = null;
+
+        /// <summary>
+        /// Prepare
+        /// </summary>
+        [XmlElement("Prepare")]
+        [DefaultValue(null)]
+        public string PrepareScript { get; set; } = null;
 
         /// <summary>
         /// Script for checker
