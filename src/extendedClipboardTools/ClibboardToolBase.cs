@@ -8,6 +8,12 @@ using System.Text.RegularExpressions;
 
 namespace extendedClipboardTools
 {
+    /// <summary>
+    /// common base class of clipboard tool
+    /// </summary>
+    /// <remarks>
+    /// this class has 1 of Regex(regex) and 1 of object(value).
+    /// </remarks>
     public abstract class ClipboardTool : IClipboardTool
     {
         #region IClipboardTool
@@ -21,10 +27,19 @@ namespace extendedClipboardTools
         public virtual void FinishAction(string opt) { }
         #endregion
 
+        /// <summary>
+        /// Regex object syntax suger for subclass
+        /// </summary>
         protected Regex regex;
 
+        /// <summary>
+        /// Variant object syntax suger for subclass
+        /// </summary>
         protected object value;
 
+        /// <summary>
+        /// get clipboard string (if data is not text, return null)
+        /// </summary>
         protected string StringData
         {
             get
@@ -37,90 +52,27 @@ namespace extendedClipboardTools
             }
         }
 
+        /// <summary>
+        /// Syntax suger for Environment.NewLine
+        /// </summary>
         protected string NL { get { return Environment.NewLine; } }
 
+
+        /// <summary>
+        /// Write value.ToString() to clipboard as text
+        /// </summary>
+        protected void Write()
+        {
+            Clipboard.SetText(value.ToString());
+        }
+
+        /// <summary>
+        /// write s to clipboard as text
+        /// </summary>
+        /// <param name="s"></param>
         protected void Write(string s)
         {
             Clipboard.SetText(s);
         }
     }
-
-    public class SampleNormalTool : ClipboardTool
-    {
-        public SampleNormalTool()
-        {
-            Name = "StripQuote";
-            Description = "get quoted string list without quote.";
-            Continuous = false;
-        }
-
-        public override void Prepare()
-        {
-            regex = new Regex(@"""([^""]+)""");
-        }
-
-        public override bool Checker(string opt)
-        {
-            var s = StringData;
-            var ret = false;
-            if (!string.IsNullOrEmpty(s))
-            {
-                value = "";
-                foreach(Match m in regex.Matches(s))
-                {
-                    value += m.Groups[1].ToString() + NL;
-                    ret = true;
-                }
-            }
-            return ret;
-        }
-
-        public override void Action(string opt)
-        {
-            Write(value as string);
-        }
-    }
-
-    public class SampleContinuousTool : ClipboardTool
-    {
-        public SampleContinuousTool()
-        {
-            Name = "ConcatStrings$NewLine$Tab";
-            Description = "Concatenate with linebreak or tab";
-            Continuous = true;
-        }
-
-        public override bool Checker(string opt)
-        {
-            return !string.IsNullOrEmpty(StringData);
-        }
-
-        public override void Action(string opt)
-        {
-            if (value == null)
-            {
-                value = StringData;
-            }
-            else
-            {
-                string sep = "";
-                if (opt == "NewLine")
-                {
-                    sep = Environment.NewLine;
-                }
-                else if (opt == "Tab")
-                {
-                    sep = "\t";
-                }
-                value += sep + StringData;
-            }
-        }
-
-        public override void FinishAction(string opt)
-        {
-            Write(value as string);
-            value = null;
-        }
-    }
-
 }
