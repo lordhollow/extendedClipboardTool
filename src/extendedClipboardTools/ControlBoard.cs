@@ -88,5 +88,10 @@ namespace extendedClipboardTools
                     break;
             }
         }
+
+        private void chkTopMost_CheckedChanged(object sender, EventArgs e)
+        {
+            TopMost = chkTopMost.Checked;
+        }
     }
 }
