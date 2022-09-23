@@ -37,6 +37,8 @@ namespace extendedClipboardTools
             }
         }
 
+        protected string NL { get { return Environment.NewLine; } }
+
         protected void Write(string s)
         {
             Clipboard.SetText(s);
@@ -54,22 +56,23 @@ namespace extendedClipboardTools
 
         public override void Prepare()
         {
-            regex = new Regex(@"\""([^\""]+)\""");
+            regex = new Regex(@"""([^""]+)""");
         }
 
         public override bool Checker(string opt)
         {
             var s = StringData;
+            var ret = false;
             if (!string.IsNullOrEmpty(s))
             {
-                var m = regex.Match(s);
-                if (m.Success)
+                value = "";
+                foreach(Match m in regex.Matches(s))
                 {
-                    value = m.Groups[1].ToString();
-                    return false;
+                    value += m.Groups[1].ToString() + NL;
+                    ret = true;
                 }
             }
-            return false;
+            return ret;
         }
 
         public override void Action(string opt)
@@ -82,7 +85,7 @@ namespace extendedClipboardTools
     {
         public SampleContinuousTool()
         {
-            Name = "Concat$NewLine$Tab";
+            Name = "ConcatStrings$NewLine$Tab";
             Description = "Concatenate with linebreak or tab";
             Continuous = true;
         }
