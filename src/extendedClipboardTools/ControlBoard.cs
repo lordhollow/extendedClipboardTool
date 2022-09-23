@@ -45,6 +45,8 @@ namespace extendedClipboardTools
 
         private void onDrawClipboard()
         {
+            ClipboardExtender.Instance.NotifyClipboardChanged();
+
             DrawClipboard?.Invoke(this, EventArgs.Empty);
         }
 
