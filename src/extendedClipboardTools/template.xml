@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClipboardTool xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" continuous="true">
+  <FaceName>ButtonFaceTextHere</FaceName>
+  <Checker>Checker script here.</Checker>
+  <Action>Action script here.</Action>
+  <FinishAction>FinishAction script here.</FinishAction>
+</ClipboardTool>

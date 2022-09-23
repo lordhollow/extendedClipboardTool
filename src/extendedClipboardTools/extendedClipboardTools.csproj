@@ -53,6 +53,7 @@
     <Compile Include="ControlBoard.Designer.cs">
       <DependentUpon>ControlBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtendToolDefineSheet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlBoard.resx">
