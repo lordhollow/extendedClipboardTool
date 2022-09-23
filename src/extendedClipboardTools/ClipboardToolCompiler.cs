@@ -112,6 +112,7 @@ namespace extendedClipboardTools
                         if (tool != null)
                         {
                             tool.Define = def;
+                            tool.Enable = true;
                             yield return tool;
                         }
                     }
