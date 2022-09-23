@@ -32,15 +32,15 @@ namespace extendedClipboardTools
                            namespace extendedClipboardTools
                            {" + nl;
 
-            var names = new List<string>();
+            Defines = defines.ToList();
 
-            foreach(var def in defines)
+            foreach(var def in Defines)
             {
                 //nameがクラス名の要件を満たさないとダメなのだがそれのチェックをどこでやるかは未定。
-                names.Add(def.Name);
                 script += defToScript(def);
             }
             script += "}" + nl;
+  
             //for debug
             File.WriteAllText(PathExtension.ApplicationPathFile("lastCompiledScript.cs"), script);
 
@@ -72,13 +72,11 @@ namespace extendedClipboardTools
             //getTools
             if (!result.Errors.HasErrors)
             {
-                Names = names.ToArray();
                 Assembly = result.CompiledAssembly;
                 return true;
             }
             else
             {
-                Names = null;
                 Assembly = null;
                 return false;
             }
@@ -87,7 +85,7 @@ namespace extendedClipboardTools
         /// <summary>
         /// clipboard tool names in assembly
         /// </summary>
-        public string[] Names { get; private set; }
+        public List<ExtendToolDefineSheet> Defines { get; private set; }
 
         /// <summary>
         /// CompileError
@@ -106,13 +104,14 @@ namespace extendedClipboardTools
         {
             get
             {
-                if (Assembly!=null)
+                if (Assembly != null)
                 {
-                    foreach(var name in Names)
+                    foreach (var def in Defines)
                     {
-                        var tool = Assembly.CreateInstance($"extendedClipboardTools.{name}") as IClipboardTool;
+                        var tool = Assembly.CreateInstance($"extendedClipboardTools.{def.Name}") as ClipboardTool;
                         if (tool != null)
                         {
+                            tool.Define = def;
                             yield return tool;
                         }
                     }

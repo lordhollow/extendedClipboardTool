@@ -25,6 +25,7 @@ namespace extendedClipboardTools
         public virtual bool Checker(string opt) { return false; }
         public virtual void Action(string opt) { }
         public virtual void FinishAction(string opt) { }
+        public ExtendToolDefineSheet Define { get; set; }
         #endregion
 
         /// <summary>

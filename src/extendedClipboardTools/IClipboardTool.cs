@@ -23,5 +23,7 @@ namespace extendedClipboardTools
         void Action(string opt);
 
         void FinishAction(string opt);
+
+        ExtendToolDefineSheet Define { get; }
     }
 }
