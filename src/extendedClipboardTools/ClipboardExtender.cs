@@ -23,14 +23,14 @@ namespace extendedClipboardTools
                 new SampleNormalTool { Enable = true },
                 new SampleContinuousTool { Enable = true }
             };
+
+            foreach(var tool in tools)
+            {
+                tool.Prepare();
+            }
         }
 
         public IEnumerable<IClipboardTool> Tools { get { return tools; } }
 
-
-        public void NotifyClipboardChanged()
-        {
-
-        }
     }
 }

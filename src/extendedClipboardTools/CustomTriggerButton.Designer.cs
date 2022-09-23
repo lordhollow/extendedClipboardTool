@@ -43,6 +43,7 @@
             this.btnAct.TabIndex = 0;
             this.btnAct.Text = "btnAct";
             this.btnAct.UseVisualStyleBackColor = true;
+            this.btnAct.Click += new System.EventHandler(this.btnAct_Click);
             // 
             // cmbOption
             // 
@@ -53,7 +54,6 @@
             this.cmbOption.Name = "cmbOption";
             this.cmbOption.Size = new System.Drawing.Size(75, 20);
             this.cmbOption.TabIndex = 1;
-            this.cmbOption.Click += new System.EventHandler(this.cmbOption_Click);
             // 
             // chkContAct
             // 

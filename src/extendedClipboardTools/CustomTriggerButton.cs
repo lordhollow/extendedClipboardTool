@@ -74,12 +74,43 @@ namespace extendedClipboardTools
         }
 
         /// <summary>
+        /// option string for tool
+        /// </summary>
+        public string Option { get { return cmbOption.Text; } }
+
+        /// <summary>
+        /// is continuous tool active?
+        /// </summary>
+        public bool Active { get { return chkContAct.Checked; } }
+
+        /// <summary>
+        /// notify clipboard draw
+        /// </summary>
+        public void NotifyCliboardDraw()
+        {
+            //continuous tool: always visible. if checker returns true, execute action
+            if (Tool.Continuous)
+            {
+                if (Active && Tool.Checker(Option))
+                {
+                    Tool.Action(Option);
+                }
+            }
+            //non-continuous tool: checker result changes visibility
+            else
+            {
+                Visible = Tool.Checker(Option);
+            }
+        }
+
+        /// <summary>
         /// action for non-continuous tool
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void cmbOption_Click(object sender, EventArgs e)
+        private void btnAct_Click(object sender, EventArgs e)
         {
+            Tool.Action(Option);
         }
 
         /// <summary>
@@ -89,6 +120,12 @@ namespace extendedClipboardTools
         /// <param name="e"></param>
         private void chkContAct_CheckedChanged(object sender, EventArgs e)
         {
+            if ((Tool != null) && (!Active))
+            {
+                //Active to NonActive with tool: execute finish action
+                Console.WriteLine($"Call Finish Action of { chkContAct.Text} with {Option}");
+                Tool.FinishAction(Option);
+            }
         }
 
     }

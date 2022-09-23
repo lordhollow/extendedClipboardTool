@@ -54,8 +54,7 @@ namespace extendedClipboardTools
         private void onDrawClipboard()
         {
             updateSummary();
-
-            ClipboardExtender.Instance.NotifyClipboardChanged();
+            notifyClipboardDraw();
 
             DrawClipboard?.Invoke(this, EventArgs.Empty);
         }
@@ -84,6 +83,14 @@ namespace extendedClipboardTools
                 msg = "Unknown";
             }
             lblMsg.Text = msg;
+        }
+
+        private void notifyClipboardDraw()
+        {
+            foreach(CustomTriggerButton btn in pMain.Controls)
+            {
+                btn.NotifyCliboardDraw();
+            }
         }
 
         void StartListening()
