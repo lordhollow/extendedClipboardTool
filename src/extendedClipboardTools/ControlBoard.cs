@@ -39,6 +39,14 @@ namespace extendedClipboardTools
             //[un]registor clipboard viewer
             Shown += (s, a) => StartListening();
             FormClosing += (s, a) => EndListening();
+
+            foreach (var tool in ClipboardExtender.Instance.Tools.Reverse())
+            {
+                var ctrl = new CustomTriggerButton();
+                ctrl.Attach(tool);
+                ctrl.Dock = DockStyle.Top;
+                pMain.Controls.Add(ctrl);
+            }
         }
 
         public EventHandler DrawClipboard;

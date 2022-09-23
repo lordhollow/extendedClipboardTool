@@ -54,12 +54,21 @@
     <Compile Include="ControlBoard.Designer.cs">
       <DependentUpon>ControlBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomTriggerButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomTriggerButton.Designer.cs">
+      <DependentUpon>CustomTriggerButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtendToolDefineSheet.cs" />
     <Compile Include="IClipboardTool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ControlBoard.resx">
       <DependentUpon>ControlBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomTriggerButton.resx">
+      <DependentUpon>CustomTriggerButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

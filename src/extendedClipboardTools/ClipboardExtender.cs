@@ -14,6 +14,20 @@ namespace extendedClipboardTools
     {
         public static readonly ClipboardExtender Instance = new ClipboardExtender();
 
+        private List<IClipboardTool> tools;
+
+        public ClipboardExtender()
+        {
+            tools = new List<IClipboardTool>
+            {
+                new SampleNormalTool { Enable = true },
+                new SampleContinuousTool { Enable = true }
+            };
+        }
+
+        public IEnumerable<IClipboardTool> Tools { get { return tools; } }
+
+
         public void NotifyClipboardChanged()
         {
 
