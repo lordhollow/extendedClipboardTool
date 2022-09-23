@@ -40,6 +40,14 @@ namespace extendedClipboardTools
             Shown += (s, a) => StartListening();
             FormClosing += (s, a) => EndListening();
 
+            ReconstructTools();
+
+        }
+
+        public void ReconstructTools()
+        {
+            pMain.Controls.Clear();
+
             foreach (var tool in ClipboardExtender.Instance.Tools.Reverse())
             {
                 var ctrl = new CustomTriggerButton();
@@ -139,7 +147,7 @@ namespace extendedClipboardTools
 
         private void btnConfig_Click(object sender, EventArgs e)
         {
-            var editor = new ConfigulationWindow();
+            var editor = new ConfigurationWindow();
             editor.ShowDialog();
         }
     }
