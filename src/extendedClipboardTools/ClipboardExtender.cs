@@ -34,6 +34,12 @@ namespace extendedClipboardTools
         /// </summary>
         private ClipboardExtender()
         {
+            var dir = PathExtension.ApplicationPathFile("tool");
+            if (!Directory.Exists(dir))
+            {
+                prepareDefaultTools(dir);
+            }
+
             tools = new List<IClipboardTool>();
 
             LoadExternalTools();
@@ -75,6 +81,17 @@ namespace extendedClipboardTools
                 tools.AddRange(compiler.ClipboardTools);
             }
 
+        }
+
+        /// <summary>
+        /// export default tools from resource
+        /// </summary>
+        /// <param name="dir"></param>
+        private void prepareDefaultTools(string dir)
+        {
+            Directory.CreateDirectory(dir);
+            File.WriteAllText(Path.Combine(dir, "ConcatStrings.xml"), Properties.Resources.Sample_ConcatStrings);
+            File.WriteAllText(Path.Combine(dir, "StripQuote.xml"), Properties.Resources.Sample_StripQuote);
         }
 
     }

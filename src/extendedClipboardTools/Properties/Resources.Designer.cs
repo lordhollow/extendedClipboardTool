@@ -4,67 +4,109 @@
 //     ランタイム バージョン:4.0.30319.42000
 //
 //     このファイルへの変更は、以下の状況下で不正な動作の原因になったり、
-//     コードが再生成されるときに損失したりします
+//     コードが再生成されるときに損失したりします。
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace extendedClipboardTools.Properties
-{
-
-
+namespace extendedClipboardTools.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
     /// </summary>
     // このクラスは StronglyTypedResourceBuilder クラスが ResGen
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
-    // ResGen を実行し直すか、または VS プロジェクトをリビルドします。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
-        ///   このクラスで使用されるキャッシュされた ResourceManager インスタンスを返します。
+        ///   このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("extendedClipboardTools.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;ClipboardTool xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; continuous=&quot;true&quot;&gt;
+        ///  &lt;Face&gt;ConcatStrings$NewLine$Tab&lt;/Face&gt;
+        ///  &lt;Description&gt;Concatenate with linebreak or tab.&lt;/Description&gt;
+        ///  &lt;Checker&gt;
+        ///    return !string.IsNullOrEmpty(StringData);
+        ///  &lt;/Checker&gt;
+        ///  &lt;Action&gt;
+        ///    if (value == null)
+        ///    {
+        ///    	value = StringData;
+        ///    }
+        ///    else
+        ///    {
+        ///    	string sep = &quot;&quot;;
+        ///    	if (opt == &quot;NewLine&quot;)
+        ///    	{
+        ///    	 [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Sample_ConcatStrings {
+            get {
+                return ResourceManager.GetString("Sample_ConcatStrings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;ClipboardTool xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; continuous=&quot;false&quot;&gt;
+        ///  &lt;Face&gt;StripQuote&lt;/Face&gt;
+        ///  &lt;Description&gt;get quoted string list without quote.&lt;/Description&gt;
+        ///  &lt;Prepare&gt;
+        ///		regex = new Regex(@&quot;&quot;&quot;([^&quot;&quot;]+)&quot;&quot;&quot;);
+        ///  &lt;/Prepare&gt;
+        ///  &lt;Checker&gt;
+        ///		var s = StringData;
+        ///		var ret = false;
+        ///		if (!string.IsNullOrEmpty(s))
+        ///		{
+        ///		    value = &quot;&quot;;
+        ///		    foreach(Match m in regex.Matches(s))
+        ///		    {
+        ///		         [残りの文字列は切り詰められました]&quot;; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string Sample_StripQuote {
+            get {
+                return ResourceManager.GetString("Sample_StripQuote", resourceCulture);
             }
         }
     }
