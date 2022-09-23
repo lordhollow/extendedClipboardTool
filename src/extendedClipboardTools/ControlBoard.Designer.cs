@@ -31,8 +31,8 @@
             this.pUp = new System.Windows.Forms.Panel();
             this.btnConfig = new System.Windows.Forms.Button();
             this.chkTopMost = new System.Windows.Forms.CheckBox();
-            this.pMain = new System.Windows.Forms.Panel();
             this.lblMsg = new System.Windows.Forms.Label();
+            this.pMain = new System.Windows.Forms.Panel();
             this.pUp.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,14 +68,7 @@
             this.chkTopMost.TabIndex = 2;
             this.chkTopMost.Text = "Top";
             this.chkTopMost.UseVisualStyleBackColor = true;
-            // 
-            // pMain
-            // 
-            this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pMain.Location = new System.Drawing.Point(0, 29);
-            this.pMain.Name = "pMain";
-            this.pMain.Size = new System.Drawing.Size(209, 208);
-            this.pMain.TabIndex = 3;
+            this.chkTopMost.CheckedChanged += new System.EventHandler(this.chkTopMost_CheckedChanged);
             // 
             // lblMsg
             // 
@@ -85,6 +78,14 @@
             this.lblMsg.Size = new System.Drawing.Size(29, 12);
             this.lblMsg.TabIndex = 4;
             this.lblMsg.Text = "none";
+            // 
+            // pMain
+            // 
+            this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pMain.Location = new System.Drawing.Point(0, 29);
+            this.pMain.Name = "pMain";
+            this.pMain.Size = new System.Drawing.Size(209, 208);
+            this.pMain.TabIndex = 3;
             // 
             // ControlBoard
             // 

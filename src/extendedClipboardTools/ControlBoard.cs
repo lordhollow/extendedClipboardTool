@@ -53,9 +53,37 @@ namespace extendedClipboardTools
 
         private void onDrawClipboard()
         {
+            updateSummary();
+
             ClipboardExtender.Instance.NotifyClipboardChanged();
 
             DrawClipboard?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void updateSummary()
+        {
+            string msg = "";
+            if (Clipboard.ContainsText())
+            {
+                msg = $"Text, {Clipboard.GetText().Length }";  
+            }
+            else if (Clipboard.ContainsImage())
+            {
+                msg = "Image";
+            }
+            else if (Clipboard.ContainsFileDropList())
+            {
+                msg = "FileList";
+            }
+            else if (Clipboard.ContainsAudio())
+            {
+                msg = "Audio";
+            }
+            else
+            {
+                msg = "Unknown";
+            }
+            lblMsg.Text = msg;
         }
 
         void StartListening()
