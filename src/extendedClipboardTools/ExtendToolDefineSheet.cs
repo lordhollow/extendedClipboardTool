@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 using System.ComponentModel;
 
@@ -20,6 +21,7 @@ namespace extendedClipboardTools
         /// <summary>
         /// names to trigger button
         /// </summary>
+        [XmlElement("Face")]
         public String FaceName { get; set; }
 
         /// <summary>
@@ -72,5 +74,35 @@ namespace extendedClipboardTools
         [XmlElement("FinishAction")]
         [DefaultValue(null)]
         public string FinishActionScript { get; set; } = null;
+
+        /// <summary>
+        /// Read From Xml(keep line breaks)
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static ExtendToolDefineSheet CreateFromFile(string path)
+        {
+            try
+            {
+                var doc = new XmlDocument();
+                doc.PreserveWhitespace = true;
+                doc.Load(path);
+                using (var reader = new XmlNodeReader(doc))
+                {
+                    var ser = new XmlSerializer(typeof(ExtendToolDefineSheet));
+                    var obj = ser.Deserialize(reader) as ExtendToolDefineSheet;
+
+                    if (obj == null) throw new FormatException();
+
+                    obj.Name = System.IO.Path.GetFileNameWithoutExtension(path);
+                    return obj;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return null;
+        }
     }
 }
