@@ -49,6 +49,12 @@
     <Compile Include="ClibboardToolBase.cs" />
     <Compile Include="ClipboardExtender.cs" />
     <Compile Include="ClipboardToolCompiler.cs" />
+    <Compile Include="ConfigulationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigulationWindow.Designer.cs">
+      <DependentUpon>ConfigulationWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     <Compile Include="PathExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfigulationWindow.resx">
+      <DependentUpon>ConfigulationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlBoard.resx">
       <DependentUpon>ControlBoard.cs</DependentUpon>
     </EmbeddedResource>

@@ -57,6 +57,7 @@
             this.btnConfig.TabIndex = 3;
             this.btnConfig.Text = "...";
             this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // chkTopMost
             // 

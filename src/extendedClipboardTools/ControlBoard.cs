@@ -136,5 +136,11 @@ namespace extendedClipboardTools
         {
             TopMost = chkTopMost.Checked;
         }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            var editor = new ConfigulationWindow();
+            editor.ShowDialog();
+        }
     }
 }
