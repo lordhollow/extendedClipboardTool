@@ -49,6 +49,7 @@
     <Compile Include="ClibboardToolBase.cs" />
     <Compile Include="ClipboardExtender.cs" />
     <Compile Include="ClipboardToolCompiler.cs" />
+    <Compile Include="ClipboardToolOrder.cs" />
     <Compile Include="ConfigurationWindow.cs">
       <SubType>Form</SubType>
     </Compile>
