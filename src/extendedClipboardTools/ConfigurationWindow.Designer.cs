@@ -291,7 +291,7 @@
             // btnResetPrepareScript
             // 
             this.btnResetPrepareScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetPrepareScript.Location = new System.Drawing.Point(229, 203);
+            this.btnResetPrepareScript.Location = new System.Drawing.Point(326, 207);
             this.btnResetPrepareScript.Name = "btnResetPrepareScript";
             this.btnResetPrepareScript.Size = new System.Drawing.Size(75, 23);
             this.btnResetPrepareScript.TabIndex = 4;
@@ -305,10 +305,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPrepareScript.Font = new System.Drawing.Font("BIZ UDゴシック", 9F);
-            this.txtPrepareScript.Location = new System.Drawing.Point(6, 11);
+            this.txtPrepareScript.Location = new System.Drawing.Point(6, 15);
             this.txtPrepareScript.Multiline = true;
             this.txtPrepareScript.Name = "txtPrepareScript";
-            this.txtPrepareScript.Size = new System.Drawing.Size(298, 186);
+            this.txtPrepareScript.Size = new System.Drawing.Size(395, 186);
             this.txtPrepareScript.TabIndex = 3;
             // 
             // label5
@@ -335,7 +335,7 @@
             // btnResetCheckerScript
             // 
             this.btnResetCheckerScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetCheckerScript.Location = new System.Drawing.Point(229, 203);
+            this.btnResetCheckerScript.Location = new System.Drawing.Point(326, 207);
             this.btnResetCheckerScript.Name = "btnResetCheckerScript";
             this.btnResetCheckerScript.Size = new System.Drawing.Size(75, 23);
             this.btnResetCheckerScript.TabIndex = 4;
@@ -349,10 +349,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCheckerScript.Font = new System.Drawing.Font("BIZ UDゴシック", 9F);
-            this.txtCheckerScript.Location = new System.Drawing.Point(6, 11);
+            this.txtCheckerScript.Location = new System.Drawing.Point(6, 15);
             this.txtCheckerScript.Multiline = true;
             this.txtCheckerScript.Name = "txtCheckerScript";
-            this.txtCheckerScript.Size = new System.Drawing.Size(298, 186);
+            this.txtCheckerScript.Size = new System.Drawing.Size(395, 186);
             this.txtCheckerScript.TabIndex = 3;
             // 
             // label6
@@ -379,7 +379,7 @@
             // btnResetActionScript
             // 
             this.btnResetActionScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetActionScript.Location = new System.Drawing.Point(229, 203);
+            this.btnResetActionScript.Location = new System.Drawing.Point(326, 207);
             this.btnResetActionScript.Name = "btnResetActionScript";
             this.btnResetActionScript.Size = new System.Drawing.Size(75, 23);
             this.btnResetActionScript.TabIndex = 4;
@@ -393,10 +393,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtActionScript.Font = new System.Drawing.Font("BIZ UDゴシック", 9F);
-            this.txtActionScript.Location = new System.Drawing.Point(6, 11);
+            this.txtActionScript.Location = new System.Drawing.Point(6, 15);
             this.txtActionScript.Multiline = true;
             this.txtActionScript.Name = "txtActionScript";
-            this.txtActionScript.Size = new System.Drawing.Size(298, 186);
+            this.txtActionScript.Size = new System.Drawing.Size(395, 186);
             this.txtActionScript.TabIndex = 3;
             // 
             // label7
@@ -423,7 +423,7 @@
             // btnResetFinishActionScript
             // 
             this.btnResetFinishActionScript.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnResetFinishActionScript.Location = new System.Drawing.Point(229, 203);
+            this.btnResetFinishActionScript.Location = new System.Drawing.Point(326, 207);
             this.btnResetFinishActionScript.Name = "btnResetFinishActionScript";
             this.btnResetFinishActionScript.Size = new System.Drawing.Size(75, 23);
             this.btnResetFinishActionScript.TabIndex = 4;
@@ -437,10 +437,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFinishActionScript.Font = new System.Drawing.Font("BIZ UDゴシック", 9F);
-            this.txtFinishActionScript.Location = new System.Drawing.Point(6, 11);
+            this.txtFinishActionScript.Location = new System.Drawing.Point(6, 15);
             this.txtFinishActionScript.Multiline = true;
             this.txtFinishActionScript.Name = "txtFinishActionScript";
-            this.txtFinishActionScript.Size = new System.Drawing.Size(298, 186);
+            this.txtFinishActionScript.Size = new System.Drawing.Size(395, 186);
             this.txtFinishActionScript.TabIndex = 3;
             // 
             // label8
