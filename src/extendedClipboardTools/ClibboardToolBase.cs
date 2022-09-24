@@ -14,7 +14,7 @@ namespace extendedClipboardTools
     /// <remarks>
     /// this class has 1 of Regex(regex) and 1 of object(value).
     /// </remarks>
-    public abstract class ClipboardTool : IClipboardTool
+    public class ClipboardTool : IClipboardTool
     {
         #region IClipboardTool
         public string Name { get; protected set; }

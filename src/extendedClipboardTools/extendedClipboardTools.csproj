@@ -74,6 +74,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolState.cs" />
+    <Compile Include="UnloadedClipboardTool.cs" />
     <EmbeddedResource Include="ConfigurationWindow.resx">
       <DependentUpon>ConfigurationWindow.cs</DependentUpon>
     </EmbeddedResource>
