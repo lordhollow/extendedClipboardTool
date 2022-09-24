@@ -84,6 +84,15 @@ namespace extendedClipboardTools
         }
 
         /// <summary>
+        /// reorder / change enable clipboard tool
+        /// </summary>
+        /// <param name="order"></param>
+        public void Order(ClipboardToolOrder order)
+        {
+
+        }
+
+        /// <summary>
         /// export default tools from resource
         /// </summary>
         /// <param name="dir"></param>

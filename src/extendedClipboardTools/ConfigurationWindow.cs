@@ -113,10 +113,22 @@ namespace extendedClipboardTools
 
         private void toggleSelectedToolEnable()
         {
-            var item = SelectedTool;
+            var item = lstTools.SelectedItem as toolAdapter;
             if (item != null)
             {
-                item.Enable = !item.Enable;
+                switch(item.ToolState)
+                {
+                    case ToolState.Enable:
+                        item.ToolState = ToolState.Disable;
+                        break;
+                    case ToolState.Disable:
+                        item.ToolState = ToolState.Enable;
+                        break;
+                    case ToolState.Error:
+                        //todo:: if (isValidTool(item))...
+                        item.ToolState = ToolState.Enable;
+                        break;
+                }
                 lstTools.Invalidate();
             }
         }
@@ -168,21 +180,61 @@ namespace extendedClipboardTools
             public toolAdapter(IClipboardTool tool)
             {
                 Tool = tool;
+                if (tool is UnloadedClipboardTool)
+                {
+                    ToolState = (tool as UnloadedClipboardTool).Error ? ToolState.Error : ToolState = ToolState.Disable;
+                }
+                else
+                {
+                    ToolState = tool.Enable ? ToolState.Enable : ToolState.Disable;
+                }
             }
 
+            /// <summary>
+            /// Target Tool
+            /// </summary>
             public IClipboardTool Tool { get; private set; }
+
+            /// <summary>
+            /// state of tool
+            /// </summary>
+            public ToolState ToolState { get; set; }
 
             public override string ToString()
             {
                 string suf = "";
-                if (!Tool.Enable)
+                switch (ToolState)
                 {
-                    suf = " [disabled]";
+                    case ToolState.Disable:
+                        suf = " [disabled]";
+                        break;
+                    case ToolState.Error:
+                        suf = " [error]";
+                        break;
+                    default:
+                        break;
                 }
                 return Tool.Define.Name + suf;
             }
         }
 
+        /// <summary>
+        /// when close this form, apply tool order & state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ConfigurationWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var order = new ClipboardToolOrder();
+            order.AddRange(lstTools.Items.Cast<toolAdapter>().Select(item =>
+                new ClipboardToolOrderEntry
+                {
+                    State = item.ToolState,
+                    ToolName = item.Tool.Define.Name,
+                    SHA1 = null,
+                }));
+            ClipboardExtender.Instance.Order(order);
+        }
     }
 
 }

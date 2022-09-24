@@ -515,6 +515,7 @@
             this.Controls.Add(this.pLeft);
             this.Name = "ConfigurationWindow";
             this.Text = "Configulation";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigurationWindow_FormClosing);
             this.pLeft.ResumeLayout(false);
             this.pLeft.PerformLayout();
             this.gbToolCreator.ResumeLayout(false);
