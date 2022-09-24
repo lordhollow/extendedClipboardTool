@@ -50,10 +50,13 @@ namespace extendedClipboardTools
 
             foreach (var tool in ClipboardExtender.Instance.Tools.Reverse())
             {
-                var ctrl = new CustomTriggerButton();
-                ctrl.Attach(tool);
-                ctrl.Dock = DockStyle.Top;
-                pMain.Controls.Add(ctrl);
+                if (tool.Enable)
+                {
+                    var ctrl = new CustomTriggerButton();
+                    ctrl.Attach(tool);
+                    ctrl.Dock = DockStyle.Top;
+                    pMain.Controls.Add(ctrl);
+                }
             }
         }
 
